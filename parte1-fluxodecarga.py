@@ -117,7 +117,6 @@ for i in range(0, len(equacoes)):
     for j in range(0, len(variaveis)):
         jacobiano[i, j] = diff(equacoes[i], variaveis[j])
 
-# Início do método iterativo (flatstart)
 print("Início do método iterativo")
 print("-" * 100)
 k = 0
@@ -140,7 +139,6 @@ print("Valores das equações")
 for i in range(0, len(valores_calculados)):
     print(f"{nomes_equacoes[i]} = {valores_calculados[i]:.4f} pu")
 
-# Laço do método iterativo
 while max(abs(valores_calculados)) > erro:
     jac = jacobiano.subs(chute_variaveis)
     delta = -1 * jac.inv() * valores_calculados
